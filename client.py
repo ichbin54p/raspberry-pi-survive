@@ -123,7 +123,10 @@ class main:
             print(data)
             Thread(target=self.handle_conn, daemon=True).start()
             self.id = data['d']['index']
-            self.main_pygame()
+            if self.mode == "pygame":
+                self.main_pygame()
+            else:
+                self.main_sense()
         else:
             print("There was an error trying to recieve data from the server.")
 
