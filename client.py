@@ -114,8 +114,8 @@ class main:
                     self.sense.set_pixel(hazard['pos'][0], hazard['pos'][1], c)
             sleep(1/self.fps)
     def main(self):
-        self.sock.connect(("127.0.0.1", 25565))
-        if not self.send({"op": "auth", "d": "54p"}):
+        self.sock.connect((input("IP: "), int(input("PORT: "))))
+        if not self.send({"op": "auth", "d": input("Successfully connected\nUsername for auth: ")}):
             exit("There's a problem with the server")
         data = self.recv()
 
