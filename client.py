@@ -1,4 +1,6 @@
-import pygame
+try:
+    import pygame
+except ImportError: print("Unless you are using a raspberry pi, please run \"pip install pygame\"")
 import socket
 import json
 from time import sleep
@@ -100,7 +102,7 @@ class main:
         Thread(target=self.he_sense, daemon=True).start()
         while True:
             self.sense.clear(self.bac)
-            
+
             for hazard in self.hazards:
                 self.sense.set_pixel(hazard['pos'][0], hazard['pos'][1], self.dac)
             for player in self.players:
