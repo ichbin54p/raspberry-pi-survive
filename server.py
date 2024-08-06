@@ -94,7 +94,7 @@ class main:
     def main(self):
         for _ in range(ServerData.server.max_players): ServerData.server.players.append({"exists": False})
 
-        self.sock.bind(("127.0.0.1", 25565))
+        self.sock.bind((input("IP: ") or "127.0.0.1", 25565))
         self.sock.listen(ServerData.server.max_players)
         Thread(target=self.listen, daemon=True).start()
 
