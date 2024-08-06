@@ -111,7 +111,7 @@ class main:
                         c = self.mac
                     else:
                         c = self.oac
-                    self.sense.set_pixel(hazard['pos'][0], hazard['pos'][1], c)
+                    self.sense.set_pixel(player['pos'][0], player['pos'][1], c)
             sleep(1/self.fps)
     def main(self):
         self.sock.connect((input("IP: "), int(input("PORT: "))))
